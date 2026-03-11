@@ -16,6 +16,8 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
         protected void Awake()
         {
             Log.Initialize(Logger);
+            Options.Config = Config;
+            Options.Initialize();
             EnemyFriendIdentifier.Initialize();
             NyxLib.Cheats.ReadyForCheatRegistration += RegisterCheats;
         }
@@ -32,6 +34,14 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
                 {
                 }
             ), "misc");
+        }
+        
+        protected void OnApplicationFocus(bool hasFocus)
+        {
+            if (hasFocus)
+            {
+                Config.Reload();
+            }
         }
 
         protected void Start()

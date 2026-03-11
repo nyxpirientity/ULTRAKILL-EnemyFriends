@@ -66,9 +66,9 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
             {
                 if (IsLeader && !Eid.Dead)
                 {
-                    Friends = new EnemyFriendIdentifier[Options.NumFriendsToSpawn];
+                    Friends = new EnemyFriendIdentifier[Options.NumFriendsToSpawn.Value];
                     
-                    var totalEnemyNum = Options.NumFriendsToSpawn + 1;
+                    var totalEnemyNum = Options.NumFriendsToSpawn.Value + 1;
                     Bounds bounds = EnemyUtils.SolveEnemyBounds(gameObject);
                     Vector3 offset = Vector3.Project(bounds.size, transform.rotation * Vector3.right);
                     Vector3 initialOrigin = transform.position;
@@ -99,7 +99,7 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
                         transform.position += (offset) * -((float)(totalEnemyNum / 2) + -0.5f);
                     }
 
-                    for (int i = 0; i < Options.NumFriendsToSpawn; i++)
+                    for (int i = 0; i < Options.NumFriendsToSpawn.Value; i++)
                     {
                         Vector3 currentOffset = offset * (i + 1);
                         
