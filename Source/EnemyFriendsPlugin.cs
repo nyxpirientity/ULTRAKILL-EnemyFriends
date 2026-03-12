@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using BepInEx;
 using System;
+using System.IO;
 
 namespace Nyxpiri.ULTRAKILL.EnemyFriends
 {
@@ -20,6 +21,10 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
             Options.Initialize();
             EnemyFriendIdentifier.Initialize();
             NyxLib.Cheats.ReadyForCheatRegistration += RegisterCheats;
+            if (!File.Exists(Config.ConfigFilePath))
+            {
+                Config.Save();
+            }
         }
 
         private void RegisterCheats(CheatsManager cheatsManager)
