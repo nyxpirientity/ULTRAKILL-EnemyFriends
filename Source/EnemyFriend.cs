@@ -116,7 +116,7 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
                         //transform.position = initialOrigin + (Quaternion.Euler(new Vector3(0.0f, Mathf.Lerp(0.0f, 360.0f, ((float)(0) + -0.5f) / totalEnemyNum), 0.0f)) * (offset)); ;   
                     }
                 }
-                else
+                else if (!Eid.Dead)
                 {
                     NonLeaderStart();
                 }
@@ -125,7 +125,7 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
 
         private void NonLeaderStart()
         {
-            if (Cybergrind.IsActive)
+            if (Cybergrind.IsActive && !Eid.dontCountAsKills && !Eid.puppet)
             {
                 Cybergrind.EndlessGrid.tempEnemyAmount += 1;
             }

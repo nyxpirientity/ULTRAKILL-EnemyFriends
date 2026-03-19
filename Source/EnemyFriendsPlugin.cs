@@ -10,7 +10,7 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
         public const string GiveEnemiesFriends = "nyxpiri.give-enemies-friends";
     }
 
-    [BepInPlugin("com.nyxpiri.bepinex.plugins.ultrakill.enemy-friends", "Enemy Friends", "0.0.0.1")]
+    [BepInPlugin("nyxpiri.ultrakill.enemy-friends", "Enemy Friends", "0.0.0.1")]
     [BepInProcess("ULTRAKILL.exe")]
     public class EnemyFriends : BaseUnityPlugin
     {
