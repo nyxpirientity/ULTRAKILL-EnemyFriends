@@ -186,8 +186,7 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
         private EnemyFriendIdentifier SpawnFriend(Vector3 offset, int idx)
         {
             EnemyComponents enemy = GetComponent<EnemyComponents>();
-            var prefab = enemy.PrefabStore.Prefab;
-            var friend = Instantiate(prefab, enemy.RootGameObject.transform.parent);
+            var friend = enemy.PrefabStore.Instances.GetNewInstance();
             EnemyComponents friendEadd = friend.GetComponent<EnemyComponents>() ?? friend.GetComponentInChildren<EnemyComponents>();
             friend.transform.position = transform.position + offset;
             friend.SetActive(true);
