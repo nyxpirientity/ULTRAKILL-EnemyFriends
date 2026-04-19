@@ -121,6 +121,16 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
                     NonLeaderStart();
                 }
             }
+            
+            Ead.PostDeath += (cancelInfo, instakill) =>
+            {
+                if (cancelInfo.Cancelled)
+                {
+                    return;
+                }
+
+                Cybergrind.EndlessGrid.GetComponent<ActivateNextWave>().deadEnemies += 1;
+            };
         }
 
         private void NonLeaderStart()
