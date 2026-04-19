@@ -125,9 +125,9 @@ namespace Nyxpiri.ULTRAKILL.EnemyFriends
 
         private void NonLeaderStart()
         {
-            if (Cybergrind.IsActive && !Eid.dontCountAsKills && !Eid.puppet)
+            if (Cybergrind.IsActive && !Eid.dontCountAsKills && !Eid.puppet && !IsLeader)
             {
-                Cybergrind.EndlessGrid.tempEnemyAmount += 1;
+                Cybergrind.EndlessGrid.GetComponent<ActivateNextWave>().deadEnemies += 1;
             }
         }
 
